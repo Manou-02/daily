@@ -9,7 +9,7 @@ type ThemeProviderProps = {
   dark?: boolean;
 };
 
-export function ThemeProvider({ children, dark = false }: ThemeProviderProps) {
+export function ThemeProvider({ children, dark = true }: ThemeProviderProps) {
   const colors = dark ? darkColors : lightColors;
 
   return (
