@@ -5,7 +5,7 @@ import "./global.css";
 export default function RootLayout() {
   return (
     <ThemeProvider>
-      <Stack screenOptions={{ headerShown: false }} />;
+      <Stack screenOptions={{ headerShown: false }} />
     </ThemeProvider>
   );
 }

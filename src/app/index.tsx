@@ -33,7 +33,9 @@ export default function Index() {
         </Text>
 
         <Pressable className="bg-primary rounded-xl p-4 mt-6">
-          <Text className="text-white text-center font-bold">Continue</Text>
+          <Text className=" text-background text-center font-bold">
+            Continue
+          </Text>
         </Pressable>
       </View>
     </View>
