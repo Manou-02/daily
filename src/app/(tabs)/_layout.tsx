@@ -21,15 +21,17 @@ export default function TabLayout() {
           position: "absolute",
           borderTopWidth: 0,
         },
-
         tabBarActiveTintColor: primary,
         tabBarInactiveTintColor: textSecondary,
+        tabBarLabelStyle: {
+          fontSize: 12,
+        },
       }}
     >
       <Tabs.Screen
         name="home"
         options={{
-          title: "Home",
+          title: "Accueil",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home-outline" size={size} color={color} />
           ),
