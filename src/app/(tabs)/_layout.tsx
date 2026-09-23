@@ -20,6 +20,7 @@ export default function TabLayout() {
           marginBottom: 20,
           position: "absolute",
           borderTopWidth: 0,
+          elevation: 2,
         },
         tabBarActiveTintColor: primary,
         tabBarInactiveTintColor: textSecondary,
