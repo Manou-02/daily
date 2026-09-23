@@ -9,6 +9,11 @@ export default function Settings() {
 
   const themeOptions = [
     {
+      value: "system",
+      label: "Système",
+      icon: "contrast-outline" as const,
+    },
+    {
       value: "light",
       label: "Clair",
       icon: "sunny-outline" as const,

@@ -1,11 +1,11 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { vars } from "nativewind";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { ActivityIndicator, View } from "react-native";
+import { ActivityIndicator, useColorScheme, View } from "react-native";
 
 import { darkColors, lightColors } from "./colors";
 
-type Theme = "light" | "dark";
+type Theme = "light" | "dark" | "system";
 
 type ThemeContextType = {
   theme: Theme;
@@ -23,7 +23,9 @@ type ThemeProviderProps = {
 };
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setThemeState] = useState<Theme>("dark");
+  const systemColorScheme = useColorScheme();
+
+  const [theme, setThemeState] = useState<Theme>("system");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -31,7 +33,11 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       try {
         const savedTheme = await AsyncStorage.getItem(THEME_KEY);
 
-        if (savedTheme === "light" || savedTheme === "dark") {
+        if (
+          savedTheme === "light" ||
+          savedTheme === "dark" ||
+          savedTheme === "system"
+        ) {
           setThemeState(savedTheme);
         }
       } catch (error) {
@@ -55,10 +61,18 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   };
 
   const toggleTheme = () => {
+    if (theme === "system") {
+      setTheme(systemColorScheme === "dark" ? "light" : "dark");
+      return;
+    }
+
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  const isDark = theme === "dark";
+  // Resolve the actual theme
+  const isDark =
+    theme === "system" ? systemColorScheme === "dark" : theme === "dark";
+
   const colors = isDark ? darkColors : lightColors;
 
   if (isLoading) {
