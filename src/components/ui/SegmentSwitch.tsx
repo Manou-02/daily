@@ -23,7 +23,7 @@ export default function SegmentedSwitch<T>({
   onChange,
 }: SegmentedSwitchProps<T>) {
   const textPrimary = useUnstableNativeVariable("--color-textPrimary");
-  const surface = useUnstableNativeVariable("--color-surface");
+  const surface = useUnstableNativeVariable("--color-surfaceVariant");
   const primary = useUnstableNativeVariable("--color-primary");
 
   return (
