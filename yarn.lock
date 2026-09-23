@@ -1189,6 +1189,11 @@
     anser "^1.4.9"
     stacktrace-parser "^0.1.10"
 
+"@expo/material-symbols@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@expo/material-symbols/-/material-symbols-0.1.1.tgz#ee86c79e5eebed9c0eccaf7341ba61791b9e6ebd"
+  integrity sha512-ruA6hZATOPKxo1qSd1NE3HI9FrmEDwcMDhsvzTAdMkP9AapdHfJ/0tKmBMWFJir85voxs1twYxLVrGW9OLGaOg==
+
 "@expo/metro-config@~57.0.12":
   version "57.0.12"
   resolved "https://registry.yarnpkg.com/@expo/metro-config/-/metro-config-57.0.12.tgz#8955eb416ac07c86c5b9f0bd1de7bc2cf1486bab"
@@ -1343,13 +1348,26 @@
   resolved "https://registry.yarnpkg.com/@expo/sudo-prompt/-/sudo-prompt-9.3.2.tgz#0fd2813402a42988e49145cab220e25bea74b308"
   integrity sha512-HHQigo3rQWKMDzYDLkubN5WQOYXJJE2eNqIQC2axC2iO3mHdwnIR7FgZVvHWtBwAdzBgAP0ECp8KqS8TiMKvgw==
 
-"@expo/ui@^57.0.14", "@expo/ui@~57.0.14":
+"@expo/ui@^57.0.14":
   version "57.0.14"
   resolved "https://registry.yarnpkg.com/@expo/ui/-/ui-57.0.14.tgz#dab43028020536fa6e990400d17b6592184d4f92"
   integrity sha512-m8Z5dCplkOOQ70lu/xfB67qhk00Muw4U1T9frHBIW3LxxJeJZQ+jOmV6vCk6O6zVgoG/ib1et7PeX6etxI4Rsw==
   dependencies:
     sf-symbols-typescript "^2.1.0"
     vaul "^1.1.2"
+
+"@expo/ui@~57.0.19":
+  version "57.0.19"
+  resolved "https://registry.yarnpkg.com/@expo/ui/-/ui-57.0.19.tgz#b86804de7241da2cd578ab62c0912fdc5eab199f"
+  integrity sha512-WB95zQPge5nb04zgY3O2NmMtxg6G+qFH3yOAHcBkTUrJXoBReQoyY3cfp/8N5Q/azcfHJcBE3Jy0Rwq9OoRrfA==
+  dependencies:
+    sf-symbols-typescript "^2.1.0"
+    vaul "^1.1.2"
+
+"@expo/vector-icons@^15.0.2":
+  version "15.1.1"
+  resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-15.1.1.tgz#4b1d2c60493c0b0536972f0a5babd5f5c85b48f4"
+  integrity sha512-Iu2VkcoI5vygbtYngm7jb4ifxElNVXQYdDrYkT7UCEIiKLeWnQY0wf2ZhHZ+Wro6Sc5TaumpKUOqDRpLi5rkvw==
 
 "@expo/ws-tunnel@^2.0.0":
   version "2.0.0"

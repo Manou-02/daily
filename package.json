@@ -3,7 +3,9 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "dependencies": {
-    "@expo/ui": "~57.0.14",
+    "@expo/material-symbols": "^0.1.1",
+    "@expo/ui": "~57.0.19",
+    "@expo/vector-icons": "^15.0.2",
     "babel-plugin-inline-import": "^3.0.0",
     "drizzle-orm": "^0.45.2",
     "expo": "~57.0.18",
@@ -41,6 +43,7 @@
   },
   "scripts": {
     "start": "expo start",
+    "dev": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
