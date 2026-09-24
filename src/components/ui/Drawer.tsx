@@ -1,11 +1,12 @@
 import type { ModalBottomSheetRef } from "@expo/ui/jetpack-compose";
 import {
-    Host,
-    ModalBottomSheet,
+  Host,
+  ModalBottomSheet,
 } from "@expo/ui/jetpack-compose";
+import { useUnstableNativeVariable } from "nativewind";
 import { useRef } from "react";
 import {
-    View
+  View
 } from "react-native";
 
 type DrawerProps = {
@@ -22,6 +23,7 @@ export default function Drawer({
   trigger,
 }: DrawerProps) {
   const sheetRef = useRef<ModalBottomSheetRef>(null);
+  const background = useUnstableNativeVariable("--color-background");
 
     const open = () => {
         setIsOpen(true)
@@ -30,9 +32,7 @@ export default function Drawer({
   return (
     <>
       {/* React Native trigger */}
-         {trigger(open)}
-
-
+        {trigger(open)}
       {/* Native Expo UI bottom sheet */}
       {isOpen && (
         <View
@@ -42,10 +42,12 @@ export default function Drawer({
             
           }}
         >
-        <Host >
+        <Host>
           <ModalBottomSheet
             ref={sheetRef}
             onDismissRequest={() => setIsOpen(false)}
+            containerColor={background}
+
           >
             <View className="px-2">
               {children}

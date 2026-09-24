@@ -6,12 +6,12 @@ import { useTheme } from "@/themes/ThemeProvider";
 import { Ionicons } from "@expo/vector-icons";
 import { useUnstableNativeVariable } from "nativewind";
 import { useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 export default function Settings() {
   const { theme, setTheme } = useTheme();
-    const textPrimary = useUnstableNativeVariable("--color-textPrimary");
-    const textSecondary = useUnstableNativeVariable("--color-textSecondary");
+  const textPrimary = useUnstableNativeVariable("--color-textPrimary");
+  const textSecondary = useUnstableNativeVariable("--color-textSecondary");
   const warning = useUnstableNativeVariable("--color-warning");
 
   const [isOpenCategoryForm, setIsOpenCategoryForm] = useState<boolean>(false)
@@ -69,7 +69,7 @@ export default function Settings() {
             isOpen={isOpenCategoryForm}
             setIsOpen={setIsOpenCategoryForm}
             trigger={(onPress) =>
-              <Pressable onPress={() => onPress()}>
+              <TouchableOpacity onPress={() => onPress()}>
                 <View           
                 className="flex-row rounded-xl p-2 bg-surfaceVariant justify-center gap-2"
               
@@ -81,7 +81,7 @@ export default function Settings() {
                   />
                 <Text className="text-textSecondary">Ajouter une catégorie personnalisé</Text>
               </View>
-              </Pressable>
+              </TouchableOpacity>
             }
           >
               <View className="p-4">
