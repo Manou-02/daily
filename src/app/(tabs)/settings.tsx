@@ -43,6 +43,19 @@ export default function Settings() {
     },
   ] as const;
 
+  const LANGUAGE_OPTIONS = [
+  {
+    value: LanguageChoice.fr,
+    label: "Français",
+    image: require("@/assets/icons/fr.png") ,
+  },
+  {
+    value: LanguageChoice.en,
+    label: "English",
+    image: require("@/assets/icons/en.png"),
+  },
+];
+
   return (
     <View className="gap-4">
       <View className="justify-between flex-row my-2">
@@ -155,18 +168,7 @@ export default function Settings() {
                 <Select
                   value={i18n.language as Language}
                   onChange={changeLanguage}
-                  options={[
-                    {
-                      value: LanguageChoice.fr,
-                      label: "Français",
-                      icon: <Text>🇫🇷</Text>,
-                    },
-                    {
-                      value: LanguageChoice.en,
-                      label: "English",
-                      icon: <Text>🇬🇧</Text>,
-                    },
-                  ]}
+                  options={LANGUAGE_OPTIONS}
                 />
           </View>
         </View>
