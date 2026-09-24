@@ -9,49 +9,44 @@ export const LANGUAGE_KEY = "@app_language";
 
 export type Language = "fr" | "en";
 
-export async function getStoredLanguage(): Promise<Language> {
-  const language = await AsyncStorage.getItem(LANGUAGE_KEY);
+const resources = {
+  en: {
+    translation: en,
+  },
+  fr: {
+    translation: fr,
+  },
+};
 
-  if (language === "en" || language === "fr") {
-    return language;
-  }
+export async function initI18n() {
+  const savedLanguage = await AsyncStorage.getItem(LANGUAGE_KEY);
 
-  return "fr";
+  const language: Language =
+    savedLanguage === "en" || savedLanguage === "fr"
+      ? savedLanguage
+      : "fr";
+
+  await i18n
+    .use(initReactI18next)
+    .init({
+      resources,
+      lng: language,
+      fallbackLng: "fr",
+
+      compatibilityJSON: "v4",
+
+      interpolation: {
+        escapeValue: false,
+      },
+    });
+
+  return i18n;
 }
 
 export async function changeLanguage(language: Language) {
   await AsyncStorage.setItem(LANGUAGE_KEY, language);
+
   await i18n.changeLanguage(language);
-}
-
-export async function initI18n() {
-  const language = await getStoredLanguage();
-
-  if (!i18n.isInitialized) {
-    await i18n
-      .use(initReactI18next)
-      .init({
-        compatibilityJSON: "v4",
-
-        resources: {
-          en: {
-            translation: en,
-          },
-          fr: {
-            translation: fr,
-          },
-        },
-
-        lng: language,
-        fallbackLng: "fr",
-
-        interpolation: {
-          escapeValue: false,
-        },
-      });
-  } else {
-    await i18n.changeLanguage(language);
-  }
 }
 
 export default i18n;

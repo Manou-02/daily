@@ -1,30 +1,36 @@
 export default {
-    home : {
-        title : "Home"
+  home: {
+    title: "Home",
+  },
+
+  add: {
+    title: "Add",
+  },
+
+  budget: {
+    title: "Budgets",
+  },
+
+  settings: {
+    title: "Settings",
+
+    category: {
+      title: "Categories",
+      add: "Add a custom category",
     },
-    add : {
-        title : "Add"
+
+    theme: {
+      title: "Appearance",
+      subtitle: "Interface theme",
+      system: "System",
+      light: "Light",
+      dark: "Dark",
     },
-    budget : {
-        title : "Budgets"
+
+    langage: {
+      title: "Language",
+      subtitle: "App language",
+      description: "System interface",
     },
-    settings : {
-        title : "Settings",
-        category : {
-            title : "Catégories",
-            add : "Ajouter une catégorie personnalisé"
-        },
-        theme : {
-            title : "Apparence",
-            subtitle : "Thème de l'interface",
-            system : "Système",
-            light : "Clair",
-            dark : "Sombre"
-        },
-        langage : {
-            title : "Langue",
-            subtitle : "Langue de l'app",
-            description : "Interface système"
-        }
-    }
-}
+  },
+};
