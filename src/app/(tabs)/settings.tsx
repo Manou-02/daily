@@ -1,9 +1,11 @@
 import Card from "@/components/ui/Card";
+import Drawer from "@/components/ui/Drawer";
 import SegmentedSwitch from "@/components/ui/SegmentSwitch";
 import { size } from "@/themes/size";
 import { useTheme } from "@/themes/ThemeProvider";
 import { Ionicons } from "@expo/vector-icons";
 import { useUnstableNativeVariable } from "nativewind";
+import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 
 export default function Settings() {
@@ -11,6 +13,8 @@ export default function Settings() {
     const textPrimary = useUnstableNativeVariable("--color-textPrimary");
     const textSecondary = useUnstableNativeVariable("--color-textSecondary");
   const warning = useUnstableNativeVariable("--color-warning");
+
+  const [isOpenCategoryForm, setIsOpenCategoryForm] = useState<boolean>(false)
   
 
   const themeOptions = [
@@ -45,6 +49,8 @@ export default function Settings() {
         </View>
       </View>
 
+     
+
      {/* Catégories configuration  */}
       <Card>
         <View className="mb-4 flex-row gap-2 ">
@@ -58,23 +64,45 @@ export default function Settings() {
           <Text className="text-2xl text-textPrimary"> Catègories </Text>
         </View>
         <View className="gap-3">
-          <Pressable           
-            className="flex-row rounded-xl p-2 bg-surfaceVariant justify-center gap-2"
-            onPress={() => {
-              console.log("zazazaa")
-            }}
-            
+
+           <Drawer
+            isOpen={isOpenCategoryForm}
+            setIsOpen={setIsOpenCategoryForm}
+            trigger={(onPress) =>
+              <Pressable onPress={() => onPress()}>
+                <View           
+                className="flex-row rounded-xl p-2 bg-surfaceVariant justify-center gap-2"
+              
+              >
+                    <Ionicons
+                    name={"add-circle-outline"}
+                    size={size.iconSize}
+                    color={textSecondary}
+                  />
+                <Text className="text-textSecondary">Ajouter une catégorie personnalisé</Text>
+              </View>
+              </Pressable>
+            }
           >
-                <Ionicons
-                name={"add-circle-outline"}
-                size={size.iconSize}
-                color={textSecondary}
-              />
-            <Text className="text-textSecondary">Ajouter une catégorie personnalisé</Text>
-          </Pressable>
+              <View className="p-4">
+                <Text className="text-textPrimary"> zaza </Text>
+                <Text className="text-textPrimary"> zaza </Text>
+                <Text className="text-textPrimary"> zaza </Text>
+                <Text className="text-textPrimary"> zaza </Text>
+                <Text className="text-textPrimary"> zaza </Text>
+                <Text className="text-textPrimary"> zaza </Text>
+                <Text className="text-textPrimary"> zaza </Text>
+                <Text className="text-textPrimary"> zaza </Text>
+                <Text className="text-textPrimary"> zaza </Text>
+                <Text className="text-textPrimary"> zaza </Text>
+                <Text className="text-textPrimary"> zaza </Text>
+                <Text className="text-textPrimary"> zaza </Text>
+                <Text className="text-textPrimary"> zaza </Text>
+            </View>
+          </Drawer>
+        
         </View>
       </Card>
-
       {/* Theme configuration  */}
       <Card>
         <View className="mb-4 flex-row gap-2 ">
