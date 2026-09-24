@@ -58,11 +58,12 @@ export default function Settings() {
           <Text className="text-2xl text-textPrimary"> Catègories </Text>
         </View>
         <View className="gap-3">
-          <Pressable            
+          <Pressable           
             className="flex-row rounded-xl p-2 bg-surfaceVariant justify-center gap-2"
             onPress={() => {
               console.log("zazazaa")
             }}
+            
           >
                 <Ionicons
                 name={"add-circle-outline"}
