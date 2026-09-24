@@ -2,7 +2,7 @@ import { Pressable, Text, View } from "react-native";
 
 export default function Home() {
   return (
-    <View className="flex-1 bg-background p-6">
+    <View className="flex-1 bg-background ">
       <View className="bg-surface border border-border rounded-2xl p-5">
         <Text className="text-textPrimary text-2xl font-bold">Hello</Text>
 

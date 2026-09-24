@@ -1,5 +1,4 @@
 import Card from "@/components/ui/Card";
-import Container from "@/components/ui/Container";
 import SegmentedSwitch from "@/components/ui/SegmentSwitch";
 import { useTheme } from "@/themes/ThemeProvider";
 import { Text, View } from "react-native";
@@ -26,7 +25,7 @@ export default function Settings() {
   ] as const;
 
   return (
-    <Container>
+    <View>
       <Card>
         <View className="gap-3">
           <Text className="text-textPrimary">Thème de l'interface</Text>
@@ -38,6 +37,6 @@ export default function Settings() {
           />
         </View>
       </Card>
-    </Container>
+    </View>
   );
 }

@@ -1,3 +1,4 @@
+import Container from "@/components/ui/Container";
 import { Ionicons } from "@expo/vector-icons";
 import { router, Tabs } from "expo-router";
 import { useUnstableNativeVariable } from "nativewind";
@@ -27,6 +28,9 @@ export default function TabLayout() {
         tabBarLabelStyle: {
           fontSize: 12,
         },
+      }}
+      {...{
+        screenLayout: ({ children }) => <Container>{children}</Container>,
       }}
     >
       <Tabs.Screen
