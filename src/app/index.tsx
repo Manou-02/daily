@@ -1,17 +1,27 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Redirect } from "expo-router";
+// import { db } from "@/db/initialize";
+// import { useMigrations } from "drizzle-orm/expo-sqlite/migrator";
+// import { SafeAreaView } from "react-native-safe-area-context";
+// import migrations from "../drizzle/migrations";
 
 export default function Index() {
-  return (
-    <View style={styles.container}>
-      <Text>Some changes.</Text>
-    </View>
-  );
-}
+  // const { success, error } = useMigrations(db, migrations);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+  // if (error) {
+  //   return (
+  //     <SafeAreaView>
+  //       <Text>Migration Error: {error.message}</Text>
+  //     </SafeAreaView>
+  //   );
+  // }
+
+  // if (!success) {
+  //   return (
+  //     <View>
+  //       <Text>Loading database migrations...</Text>
+  //     </View>
+  //   );
+  // }
+
+  return <Redirect href={"/(tabs)/home"} />;
+}
