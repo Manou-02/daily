@@ -1,7 +1,7 @@
 import { size } from "@/themes/size";
 import { Ionicons } from "@expo/vector-icons";
 import { useUnstableNativeVariable } from "nativewind";
-import { Pressable, Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 export type SegmentedSwitchItem<T> = {
   value: T;
@@ -37,7 +37,7 @@ export default function SegmentedSwitch<T>({
         const isActive = item.value === value;
 
         return (
-          <Pressable
+          <TouchableOpacity
             key={String(item.value)}
             onPress={() => onChange(item.value)}
             className="flex-1 flex-row items-center justify-center gap-2 rounded-lg py-3"
@@ -59,7 +59,7 @@ export default function SegmentedSwitch<T>({
             >
               {item.label}
             </Text>
-          </Pressable>
+          </TouchableOpacity>
         );
       })}
     </View>

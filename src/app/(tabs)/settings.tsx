@@ -6,10 +6,15 @@ import { useTheme } from "@/themes/ThemeProvider";
 import { Ionicons } from "@expo/vector-icons";
 import { useUnstableNativeVariable } from "nativewind";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Text, TouchableOpacity, View } from "react-native";
+
+
 
 export default function Settings() {
   const { theme, setTheme } = useTheme();
+  const {t} = useTranslation();
+
   const textPrimary = useUnstableNativeVariable("--color-textPrimary");
   const textSecondary = useUnstableNativeVariable("--color-textSecondary");
   const warning = useUnstableNativeVariable("--color-warning");
@@ -20,17 +25,17 @@ export default function Settings() {
   const themeOptions = [
     {
       value: "system",
-      label: "Système",
+      label: t("settings.theme.system"),
       icon: "contrast-outline" as const,
     },
     {
       value: "light",
-      label: "Clair",
+      label: t("settings.theme.light"),
       icon: "sunny-outline" as const,
     },
     {
       value: "dark",
-      label: "Sombre",
+      label: t("settings.theme.dark"),
       icon: "moon-outline" as const,
     },
   ] as const;
@@ -38,7 +43,7 @@ export default function Settings() {
   return (
     <View className="gap-4">
       <View className="justify-between flex-row my-2">
-        <Text className="text-textPrimary text-2xl"> Paramètres </Text>
+        <Text className="text-textPrimary text-2xl"> {t("settings.title")} </Text>
         <View>
 
         <Ionicons
@@ -61,7 +66,7 @@ export default function Settings() {
                 color={warning}
               />
           </View>
-          <Text className="text-2xl text-textPrimary"> Catègories </Text>
+          <Text className="text-2xl text-textPrimary"> {t("settings.category.title")} </Text>
         </View>
         <View className="gap-3">
 
@@ -79,7 +84,7 @@ export default function Settings() {
                     size={size.iconSize}
                     color={textSecondary}
                   />
-                <Text className="text-textSecondary">Ajouter une catégorie personnalisé</Text>
+                <Text className="text-textSecondary">{t("settings.category.add")}</Text>
               </View>
               </TouchableOpacity>
             }
@@ -113,10 +118,10 @@ export default function Settings() {
                 color={textPrimary}
               />
           </View>
-          <Text className="text-2xl text-textPrimary"> Apparence </Text>
+          <Text className="text-2xl text-textPrimary"> {t("settings.theme.title")} </Text>
         </View>
         <View className="gap-3">
-          <Text className="text-textPrimary">Thème de l'interface</Text>
+          <Text className="text-textPrimary">{t("settings.theme.subtitle")}</Text>
 
           <SegmentedSwitch
             items={themeOptions}
@@ -137,12 +142,12 @@ export default function Settings() {
                 color={textSecondary}
               />
           </View>
-          <Text className="text-2xl text-textPrimary"> Langue </Text>
+          <Text className="text-2xl text-textPrimary"> {t("settings.langage.title")} </Text>
         </View>
         <View className="flex-row justify-between">
           <View> 
-            <Text className="text-textPrimary text-xl"> Langue de l'app </Text>
-            <Text className="text-textPrimary text-sm"> Interface système </Text>
+            <Text className="text-textPrimary text-xl"> {t("settings.langage.subtitle")} </Text>
+            <Text className="text-textPrimary text-sm"> {t("settings.langage.description")} </Text>
           </View>
           <View>
             <Text className="text-textPrimary">zaza</Text>

@@ -2,9 +2,13 @@ import Container from "@/components/ui/Container";
 import { Ionicons } from "@expo/vector-icons";
 import { router, Tabs } from "expo-router";
 import { useUnstableNativeVariable } from "nativewind";
+import { useTranslation } from "react-i18next";
 import { Pressable } from "react-native";
 
 export default function TabLayout() {
+
+  const {t} = useTranslation()
+
   const primary = useUnstableNativeVariable("--color-primary");
   const surface = useUnstableNativeVariable("--color-surface");
   const border = useUnstableNativeVariable("--color-border");
@@ -36,7 +40,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="home"
         options={{
-          title: "Accueil",
+          title: t("home.title"),
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home-outline" size={size} color={color} />
           ),
@@ -69,7 +73,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="budgets"
         options={{
-          title: "Budgets",
+          title: t("budget.title"),
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="wallet-outline" size={size} color={color} />
           ),
@@ -78,7 +82,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="settings"
         options={{
-          title: "Paramètres",
+          title: t("settings.title"),
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="settings-outline" size={size} color={color} />
           ),

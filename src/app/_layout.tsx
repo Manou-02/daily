@@ -1,3 +1,4 @@
+import "@/i18n";
 import { ThemeProvider } from "@/themes/ThemeProvider";
 import { Stack } from "expo-router";
 import "./global.css";
