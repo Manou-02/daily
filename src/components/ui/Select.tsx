@@ -1,7 +1,9 @@
 import { Ionicons } from "@expo/vector-icons";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
+import type { ImageSourcePropType } from "react-native";
 import {
     FlatList,
+    Image,
     Modal,
     Pressable,
     Text,
@@ -11,7 +13,14 @@ import {
 export type SelectOption<T> = {
   value: T;
   label: string;
-  icon?: React.ReactNode;
+  image?: ImageSourcePropType;
+};
+
+type Position = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
 };
 
 type SelectProps<T> = {
@@ -27,18 +36,6 @@ type SelectProps<T> = {
   textClassName?: string;
 
   iconColor?: string;
-
-  renderOption?: (
-    option: SelectOption<T>,
-    selected: boolean
-  ) => React.ReactNode;
-};
-
-type Position = {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
 };
 
 export default function Select<T>({
@@ -51,7 +48,6 @@ export default function Select<T>({
   optionClassName = "",
   textClassName = "text-sm text-textPrimary",
   iconColor = "#94A3B8",
-  renderOption,
 }: SelectProps<T>) {
   const [open, setOpen] = useState(false);
   const [position, setPosition] = useState<Position | null>(null);
@@ -86,8 +82,11 @@ export default function Select<T>({
 
   return (
     <>
-      {/* Trigger */}
-      <View ref={triggerRef} collapsable={false}>
+      {/* SELECT TRIGGER */}
+      <View
+        ref={triggerRef}
+        collapsable={false}
+      >
         <Pressable
           disabled={disabled}
           onPress={openSelect}
@@ -103,11 +102,23 @@ export default function Select<T>({
             ${triggerClassName}
           `}
         >
-          {selectedOption?.icon}
+          {selectedOption?.image && (
+            <Image
+              source={selectedOption.image}
+              style={{
+                width: 24,
+                height: 16,
+                borderRadius: 2,
+              }}
+              resizeMode="cover"
+            />
+          )}
 
           <Text
             className={`
-              ${selectedOption?.icon ? "ml-2" : ""}
+              text-sm
+              text-textPrimary
+              ${selectedOption?.image ? "ml-2" : ""}
               ${textClassName}
             `}
             numberOfLines={1}
@@ -119,23 +130,25 @@ export default function Select<T>({
             name="chevron-down"
             size={14}
             color={iconColor}
-            style={{ marginLeft: 6 }}
+            style={{
+              marginLeft: 6,
+            }}
           />
         </Pressable>
       </View>
 
-      {/* Dropdown */}
-      {position && (
-        <Modal
-          visible={open}
-          transparent
-          animationType="fade"
-          onRequestClose={() => setOpen(false)}
+      {/* DROPDOWN */}
+      <Modal
+        visible={open}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setOpen(false)}
+      >
+        <Pressable
+          className="flex-1"
+          onPress={() => setOpen(false)}
         >
-          <Pressable
-            className="flex-1"
-            onPress={() => setOpen(false)}
-          >
+          {position && (
             <View
               style={{
                 position: "absolute",
@@ -147,20 +160,9 @@ export default function Select<T>({
             >
               <FlatList
                 data={options}
-                keyExtractor={(_, index) => String(index)}
+                keyExtractor={(item) => String(item.value)}
                 renderItem={({ item }) => {
                   const selected = item.value === value;
-
-                  if (renderOption) {
-                    return (
-                      <Pressable
-                        onPress={() => handleSelect(item)}
-                        className={optionClassName}
-                      >
-                        {renderOption(item, selected)}
-                      </Pressable>
-                    );
-                  }
 
                   return (
                     <Pressable
@@ -174,14 +176,24 @@ export default function Select<T>({
                         ${optionClassName}
                       `}
                     >
-                      {item.icon}
+                      {item.image && (
+                        <Image
+                          source={item.image}
+                          style={{
+                            width: 24,
+                            height: 16,
+                            borderRadius: 2,
+                          }}
+                          resizeMode="cover"
+                        />
+                      )}
 
                       <Text
                         className={`
                           flex-1
                           text-sm
                           text-textPrimary
-                          ${item.icon ? "ml-2" : ""}
+                          ${item.image ? "ml-2" : ""}
                         `}
                       >
                         {item.label}
@@ -199,9 +211,9 @@ export default function Select<T>({
                 }}
               />
             </View>
-          </Pressable>
-        </Modal>
-      )}
+          )}
+        </Pressable>
+      </Modal>
     </>
   );
 }

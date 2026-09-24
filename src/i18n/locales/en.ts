@@ -31,6 +31,8 @@ export default {
       title: "Language",
       subtitle: "App language",
       description: "System interface",
+      fr : "French",
+      en : "English"
     },
   },
 };
