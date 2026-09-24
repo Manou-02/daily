@@ -46,12 +46,12 @@ export default function Settings() {
   const LANGUAGE_OPTIONS = [
   {
     value: LanguageChoice.fr,
-    label: "Français",
+    label: t("settings.langage.fr"),
     image: require("@/assets/icons/fr.png") ,
   },
   {
     value: LanguageChoice.en,
-    label: "English",
+    label: t("settings.langage.en"),
     image: require("@/assets/icons/en.png"),
   },
 ];

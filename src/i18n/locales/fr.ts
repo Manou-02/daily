@@ -24,7 +24,9 @@ export default {
         langage : {
             title : "Langue",
             subtitle : "Langue de l'app",
-            description : "Interface système"
+            description : "Interface système",
+            fr : "Français",
+            en : "Anglais"
         }
     }
 }
