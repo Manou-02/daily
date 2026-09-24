@@ -1,6 +1,8 @@
 import Card from "@/components/ui/Card";
 import Drawer from "@/components/ui/Drawer";
 import SegmentedSwitch from "@/components/ui/SegmentSwitch";
+import Select from "@/components/ui/Select";
+import { changeLanguage, type Language } from "@/i18n";
 import { size } from "@/themes/size";
 import { useTheme } from "@/themes/ThemeProvider";
 import { Ionicons } from "@expo/vector-icons";
@@ -13,7 +15,8 @@ import { Text, TouchableOpacity, View } from "react-native";
 
 export default function Settings() {
   const { theme, setTheme } = useTheme();
-  const {t} = useTranslation();
+  const {t, i18n} = useTranslation();
+
 
   const textPrimary = useUnstableNativeVariable("--color-textPrimary");
   const textSecondary = useUnstableNativeVariable("--color-textSecondary");
@@ -149,8 +152,23 @@ export default function Settings() {
             <Text className="text-textPrimary text-xl"> {t("settings.langage.subtitle")} </Text>
             <Text className="text-textPrimary text-sm"> {t("settings.langage.description")} </Text>
           </View>
-          <View>
-            <Text className="text-textPrimary">zaza</Text>
+          <View className="">
+                <Select
+                  value={i18n.language as Language}
+                  onChange={changeLanguage}
+                  options={[
+                    {
+                      value: "fr",
+                      label: "Français",
+                      icon: <Text>🇫🇷</Text>,
+                    },
+                    {
+                      value: "en",
+                      label: "English",
+                      icon: <Text>🇬🇧</Text>,
+                    },
+                  ]}
+                />
           </View>
         </View>
       </Card>
