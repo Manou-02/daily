@@ -7,7 +7,13 @@ import fr from "./locales/fr";
 
 export const LANGUAGE_KEY = "@app_language";
 
+
 export type Language = "fr" | "en";
+
+export const LanguageChoice = {
+    fr : "fr" as Language,
+    en : "en" as Language
+}
 
 const resources = {
   en: {

@@ -2,7 +2,7 @@ import Card from "@/components/ui/Card";
 import Drawer from "@/components/ui/Drawer";
 import SegmentedSwitch from "@/components/ui/SegmentSwitch";
 import Select from "@/components/ui/Select";
-import { changeLanguage, type Language } from "@/i18n";
+import { changeLanguage, LanguageChoice, type Language } from "@/i18n";
 import { size } from "@/themes/size";
 import { useTheme } from "@/themes/ThemeProvider";
 import { Ionicons } from "@expo/vector-icons";
@@ -48,12 +48,11 @@ export default function Settings() {
       <View className="justify-between flex-row my-2">
         <Text className="text-textPrimary text-2xl"> {t("settings.title")} </Text>
         <View>
-
-        <Ionicons
-                name={"settings"}
-                size={size.iconSize}
-                color={textSecondary}
-                />
+          <Ionicons
+            name={"settings"}
+            size={size.iconSize}
+            color={textSecondary}
+          />
         </View>
       </View>
 
@@ -158,12 +157,12 @@ export default function Settings() {
                   onChange={changeLanguage}
                   options={[
                     {
-                      value: "fr",
+                      value: LanguageChoice.fr,
                       label: "Français",
                       icon: <Text>🇫🇷</Text>,
                     },
                     {
-                      value: "en",
+                      value: LanguageChoice.en,
                       label: "English",
                       icon: <Text>🇬🇧</Text>,
                     },
