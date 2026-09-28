@@ -6,6 +6,7 @@ import { useUnstableNativeVariable } from "nativewind";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Pressable, Text, TouchableOpacity, View } from "react-native";
+import CategoryForm from "./CategoryForm";
 export default function Category() {
   const { t } = useTranslation();
 
@@ -134,20 +135,8 @@ export default function Category() {
             </TouchableOpacity>
           )}
         >
-          <View className="p-4">
-            <Text className="text-textPrimary"> zaza </Text>
-            <Text className="text-textPrimary"> zaza </Text>
-            <Text className="text-textPrimary"> zaza </Text>
-            <Text className="text-textPrimary"> zaza </Text>
-            <Text className="text-textPrimary"> zaza </Text>
-            <Text className="text-textPrimary"> zaza </Text>
-            <Text className="text-textPrimary"> zaza </Text>
-            <Text className="text-textPrimary"> zaza </Text>
-            <Text className="text-textPrimary"> zaza </Text>
-            <Text className="text-textPrimary"> zaza </Text>
-            <Text className="text-textPrimary"> zaza </Text>
-            <Text className="text-textPrimary"> zaza </Text>
-            <Text className="text-textPrimary"> zaza </Text>
+          <View className="p-4" style={{ flex: 1 }}>
+            <CategoryForm />
           </View>
         </Drawer>
       </View>
