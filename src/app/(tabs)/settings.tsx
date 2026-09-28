@@ -7,23 +7,18 @@ import { useUnstableNativeVariable } from "nativewind";
 import { useTranslation } from "react-i18next";
 import { Text, View } from "react-native";
 
-
-
 export default function Settings() {
-  const {t} = useTranslation();
-
+  const { t } = useTranslation();
 
   const textSecondary = useUnstableNativeVariable("--color-textSecondary");
 
-  
-
- 
-
-
   return (
-    <View className="gap-4">
+    <View className="gap-4 relative">
       <View className="justify-between flex-row my-2">
-        <Text className="text-textPrimary text-2xl"> {t("settings.title")} </Text>
+        <Text className="text-textPrimary text-2xl">
+          {" "}
+          {t("settings.title")}{" "}
+        </Text>
         <View>
           <Ionicons
             name={"settings"}
